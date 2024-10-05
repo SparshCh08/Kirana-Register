@@ -1,12 +1,9 @@
 package com.kirana.register.model;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 @Data
 @Document(collection = "users")
@@ -16,6 +13,16 @@ public class User {
     private String role;  // read-write, read-only
     private String email;
     private String password;  // hashed password for authentication
+
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    private LocalDateTime registrationDate;
 
     public String getName() {
         return name;

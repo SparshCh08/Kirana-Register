@@ -10,6 +10,15 @@ import java.math.BigDecimal;
 public class Report {
 
     private String UserName;
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
     private BigDecimal totalCredits;
     private BigDecimal totalDebits;
     private BigDecimal netFlow;

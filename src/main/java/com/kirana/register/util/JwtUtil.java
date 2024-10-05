@@ -2,6 +2,7 @@ package com.kirana.register.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import java.util.function.Function;
 import io.jsonwebtoken.security.Keys;
@@ -14,8 +15,8 @@ import java.util.Map;
 
 @Component
 public class JwtUtil {
-
-    private static final String SECRET_KEY = "20c39ae6451606aa81abec8c1e6907fa5a24332ac33d643296c3a70fa9f00486";
+    @Value("${auth.secret-key}")
+    private String SECRET_KEY;
 
     // Method to extract the username from JWT
     public String extractUsername(String token) {
